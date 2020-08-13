@@ -1,0 +1,70 @@
+// 1 to 100 sum 시간복잡도 n
+ans=0
+for i in range(101):
+    ans+=i
+
+//
+for(i=1; i <= 100/2; i++) {
+
+}
+
+step1  => 1+100
+step2  => 2+99
+step3  => 3+98
+..
+..
+
+// half
+start=1
+end=100
+ans=(start+end)*50
+
+for i in range(end//2):
+    ans+=start+end
+
+// 1 to 100 sum 시간복잡도 1
+def sum(100):
+    return n*(n+1)//2
+
+step1
+step2
+
+
+// zero move
+// input 102030405
+// output 123450000
+def solution(input):
+    ans=[]
+    for i in input:
+        if i!=0:
+            ans+=i
+
+    len(input)-len(ans)
+    // 마지막 0을 문자열로 바꿔버리고 붙인다.
+
+
+
+// input 100 의 난수, 1, 2, 2, 4, 5, 5, 5, 5, 5, 6, 6, 5, 5
+// output 중복인 수가 몇개 있는지 2
+def solution(input):
+    count=0
+    for i in range(len(input)-1):
+        for j in range(len(input)-i-1)):
+            if i==j:
+                count+=1
+    return count
+
+// dict 담는 루프
+dict={1:0,2:1,2:2,4:3,5:4,}
+
+// 중복을 찾는 루프
+for key in dict:
+    def cnt = dict[key]
+    if cnt > 0
+
+
+// 로켓배송
+
+
+
+

@@ -1,0 +1,70 @@
+진학사어플라이
+- 진학사어플라이 사이트의 유지보수 및 UI개선 업무
+- 원서접수페이지, 결제페이지 유지보수
+- 웹표준/CrossBrowing/반응형
+   웹표준 : 사용자가 다양한 브라우저로 웹페이지에 접속해도 동일한
+              결과가 보여지게 하는 웹기술(W3C 표준에 따라 모든
+               브라우저에서 볼 수 있는 웹사이트)
+   반응형 : 다양한 디바이스에 맞게 자동으로 홈페이지 레이아웃이
+              변동(하나의 소스로 구현)
+   크로스브라우징: 사용자가 다양한 브라우저로 웹 브라우저의 종류에
+                        상관없이 웹사이트의 레이아웃 위치나 모양이 동일하게
+                        보여지도록 하는 웹기술.
+   웹접근성: 모든 사용자가 신체적, 환경적 조건에 관계없이 웹에
+                 접근하여 이용할 수 있도록 보장하는 것을 의미
+- 수정을 거치다보니 코드를 그냥 짜는 것보다 클린코드를 작성하는 것이
+   유지보수를 함에 있어 중요하다는 것을 느낌.
+- 정해진 시간 내에 업무를 완료하는 것이 중요함.
+
+비동기
+- 특정 로직이 끝나기 전에 다음 로직이 먼저 실행되는 자바스크립트의 특성
+- 가장 흔한사례는 제이쿼리의 ajax. 화면에 이미지나 데이터를 서버에 불러와 표시
+  해야하는데 이때 ajax통신을 사용.
+  function getData() {
+        var tableData;
+        $.get('https://domain.com/products/1', function(response) {
+            tableData = response;
+        });
+        return tableData;
+    }
+    console.log(getData()); // undefined
+  여기서 $.get()이 ajax 통신을 하는 부분입니다.
+  https://domain.com 에다가 HTTP GET 요청을 날려
+  1번 상품(product) 정보를 요청하는 코드
+  ->상품정보를 가져올때까지 기다려주지않고 return이 실행되어서 undefined가 출력
+    // #1
+    console.log('Hello');
+    // #2
+    setTimeout(function() {
+        console.log('Bye');
+    }, 3000);
+    // #3
+    console.log('Hello Again');
+    #1실행 -> #3실행 -> #2실행
+    #2가 3초후에 실행되었기 때문에 기다리지 않고 #3먼저 실행
+
+콜백함수
+- 비동기 처리 방식의 문제점 해결
+- 특정로직이 끝났을 때 원하는 동작을 실행시킬수 있게 해줌
+  function getData(callbackFunc) {
+        $.get('https://domain.com/products/1', function(response) {
+            callbackFunc(response); // 서버에서 받은 데이터 response를 callbackFunc() 함수에 넘겨줌
+        });
+    }
+
+    getData(function(tableData) {
+        console.log(tableData); // $.get()의 response 값이 tableData에 전달됨
+    });
+
+콜백지옥
+- 비동기 처리로직을 위해 콜백 함수를 연속해서 사용하면 문제가 생김.
+- 웹서비스를 개발하다보면 서버에서 데이터를 받아와 화면에 표시하기까지 여러처리를
+  해야하는 경우가 있는데 모두 비동기로 처리하다보면 가독성도 떨어지고 로직을변경하기도
+  힘듬.->이게바로 콜백지옥
+
+프로미스
+- 콜백지옥을 해결
+-Pending(대기) : 비동기 처리 로직이 아직 완료되지 않은 상태
+ Fulfilled(이행) : 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태
+ Rejected(실패) : 비동기 처리가 실패하거나 오류가 발생한 상태
+-이러한 메소드를 사용해서 여러 작업들을 여러개의 프로미스로 생성해서 처리.

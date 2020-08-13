@@ -1,0 +1,32 @@
+#순열 : 중복 허용x permutations 중복을 허용하지 않습니다.
+
+from itertools import permutations
+per = permutations(["빨","주","노","초"],2)
+print(list(per))
+#=> [('빨', '주'), ('빨', '노'), ('빨', '초'), ('주', '빨'), ('주', '노'), ('주', '초'), ('노', '빨'), ('노', '주'), ('노', '초'), ('초', '빨'), ('초', '주'), ('초', '노')]
+
+
+
+#중복 순열 : 중복 허용o
+product는 중복을 허용한 방법입니다. 이때 repeat으로 인자를 설정해야합니다!
+
+from itertools import product
+per1 = product((["빨","주","노","초"]), repeat=2)
+print(list(per1))
+#=> [('빨', '빨'), ('빨', '주'), ('빨', '노'), ('빨', '초'), ('주', '빨'), ('주', '주'), ('주', '노'), ('주', '초'), ('노', '빨'), ('노', '주'), ('노', '노'), ('노', '초'), ('초', '빨'), ('초', '주'), ('초', '노'), ('초', '초')]
+
+
+
+#조합 : 중복 허용x combinations는 중복을 허용하지 않습니다.
+
+from itertools import combinations
+print(list(combinations('빨주노초',2)))
+#=> [('빨', '주'), ('빨', '노'), ('빨', '초'), ('주', '노'), ('주', '초'), ('노', '초')]
+
+
+
+#중복 조합 : 중복 허용o combinations_with_replacement는 중복을 허용한 방법입니다.
+
+from itertools import combinations_with_replacement
+print(list(combinations_with_replacement("빨주노초",2)))
+#=> [('빨', '빨'), ('빨', '주'), ('빨', '노'), ('빨', '초'), ('주', '주'), ('주', '노'), ('주', '초'), ('노', '노'), ('노', '초'), ('초', '초')]
