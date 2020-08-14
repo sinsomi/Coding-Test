@@ -1,22 +1,22 @@
-import math
-from itertools import combinations as cm
+import sys
 
-n=int(input())
-maps=[list(map(int,input().split())) for _ in range(n)]
+def solution():
+    stack = []
+    vps=list(sys.stdin.readline().strip())
+    for i in vps:
+        if len(stack)==0:  #스택이 비어있을때
+            if i=='(':     #여는괄호는 담기
+                stack.append(i)
+            else:          #닫는괄호는 틀렸음
+                return 'NO'
+        elif i=='(':
+            stack.append(i)
+        elif i==')':
+            stack.pop(-1)
+    if len(stack)==0:
+        return 'YES'
+    return 'NO'
 
-min_ans = math.inf  # 정답
-
-for case in cm(range(1,n+1),n//2): #두팀으로 나눴을 때, case는 첫번째팀경우
-    s1=s2=0
-    #print(case)
-    for i in case:
-        for j in case:
-            #print(i,j)
-            s1+=maps[i-1][j-1]
-
-    res=set(range(1,n+1))-set(case) #res는 두번째팀 경우
-    for i in res:
-        for j in res:
-            s2+=maps[i-1][j-1]
-    min_ans=min(min_ans,abs(s1-s2))
-print(min_ans)
+t = int(input())
+for _ in range(t):
+    print(solution())
