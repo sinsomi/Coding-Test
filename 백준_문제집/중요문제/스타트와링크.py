@@ -4,7 +4,7 @@ from itertools import combinations as cm
 n=int(input())
 maps=[list(map(int,input().split())) for _ in range(n)]
 
-min_ans = math.inf  # 정답
+min_ans = math.inf
 
 for case in cm(range(1,n+1),n//2): #두팀으로 나눴을 때, case는 첫번째팀경우
     s1=s2=0

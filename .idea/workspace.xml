@@ -4,8 +4,6 @@
     <list default="true" id="7373f8fd-d0be-411a-83ea-4aac68a45a29" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/백준_문제집/중요문제/알파벳_bfs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ㅎㅎㅎ.py" beforeDir="false" afterPath="$PROJECT_DIR$/ㅎㅎㅎ.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/백준_문제집/중요문제/스타트와링크.py" beforeDir="false" afterPath="$PROJECT_DIR$/백준_문제집/중요문제/스타트와링크.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1101,7 +1099,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597377067357</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="dfs">
+      <created>1597382989767</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597382989767</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -1109,10 +1114,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="dfs" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="129" y="117" key="CommitChangelistDialog2" timestamp="1597377063366">
+    <state x="129" y="117" key="CommitChangelistDialog2" timestamp="1597383011622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="129" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1597377063366" />
+    <state x="129" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1597383011622" />
     <state width="866" height="271" key="GridCell.Tab.0.bottom" timestamp="1597382795574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
