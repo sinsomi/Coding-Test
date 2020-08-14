@@ -17,7 +17,9 @@ def dfs(x,y,z):
         n=ord(matrix[nx][ny])-ord('A')
         if not alpha[n]:
             alpha[n]=True
+            #print(nx,ny)
             dfs(nx,ny,z+1)
+            #print('False',matrix[nx][ny])
             alpha[n] = False
 
 alpha[ord(matrix[0][0])-ord('A')]=True
