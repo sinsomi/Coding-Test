@@ -15,11 +15,9 @@ def bfs():
             nx,ny=x+dx[i],y+dy[i]
             if nx < 0 or nx >= r or ny < 0 or ny >= c:
                 continue
-            #print부분이 어떻게 돌아가는건지..?
-            #queue에 빠지고 추가되는게 어떻게 되는건지..
             if matrix[nx][ny] not in sentence:
                 queue.add((nx, ny, sentence + matrix[nx][ny]))
-                print(queue)
+                #print(queue)
     return mx
 
 dx = [-1, 0, 1, 0]
