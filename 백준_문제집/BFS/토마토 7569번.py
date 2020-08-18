@@ -34,5 +34,7 @@ for k in range(h):
         for j in range(m):
             if tomato[k][i][j]==0 and visit[k][i][j]==0:
                 ans=-1
+                print(ans)
+                exit()
 
 print(ans)

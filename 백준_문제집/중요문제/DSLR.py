@@ -1,30 +1,32 @@
 from collections import deque
 
-N, M, C = 10000, 1000, "DSLR"
-path = [0]*N
-command = [0]*N
-
-def bfs():
-    check = [False] * N
-    q = deque()
-    q.append(A)
+def bfs(start,end):
+    q = deque([[start, ""]])
+    visited = [0] * 10000
+    visited[start] = True
     while q:
-        x = q.popleft()
-        if x == B:
-            v = []
-            while x != A:
-                v.append(command[x])
-                x = path[x]
-            print(''.join(map(str, v[::-1])))
-            return
-        nx = (x*2%N, x-1 if x else N-1, x%M*10+x//M, x//10+x%10*M)
-        for i in range(4):
-            if not check[nx[i]]:
-                check[nx[i]] = True
-                path[nx[i]] = x
-                command[nx[i]] = C[i]
-                q.append(nx[i])
+        num, operation = q.popleft()
+
+        if num == end:
+            return operation
+
+        # D
+        if not visited[num * 2 % 10000]:
+            visited[num * 2 % 10000] = True
+            q.append([num * 2 % 10000, operation + "D"])
+        # S
+        if not visited[(num - 1) % 10000]:
+            visited[(num - 1) % 10000] = True
+            q.append([(num - 1) % 10000, operation + "S"])
+        # L
+        if not visited[num % 1000 * 10 + num // 1000]:
+            visited[num % 1000 * 10 + num // 1000] = True
+            q.append([num % 1000 * 10 + num // 1000, operation + "L"])
+        # R
+        if not visited[num % 10 * 1000 + num // 10]:
+            visited[num % 10 * 1000 + num // 10] = True
+            q.append([num % 10 * 1000 + num // 10, operation + "R"])
 
 for _ in range(int(input())):
     A, B = map(int, input().split())
-    bfs()
+    print(bfs(A,B))
