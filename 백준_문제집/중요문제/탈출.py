@@ -14,15 +14,15 @@ for i in range(r):
         if maps[i][j]=='*':
             queue.append([i,j])
         elif maps[i][j]=='S':
-            queue.appendleft([i,j])
+            queue.append([i,j])
         elif maps[i][j]=='D':
             target_r=i
             target_c=j
 
+#굴에 도착하고 나면 while문 탈출
 flag=False
 #물과 고슴도치 위치에서 BFS탐색
 while queue:
-    # 굴에 도착하고 나면 while문 탈출
     if flag:
         break
     pr, pc = queue.popleft()
@@ -33,7 +33,7 @@ while queue:
 
         #물
         if maps[pr][pc]=='*':
-            if maps[nr][nc]=='.' or maps[nr][nc]=='S':
+            if maps[nr][nc]=='.':
                 maps[nr][nc]='*'
                 queue.append([nr,nc])
 
