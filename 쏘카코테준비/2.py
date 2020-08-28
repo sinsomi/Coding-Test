@@ -13,8 +13,9 @@ def bfs(i,j,drum):
                 return True
             elif drum[r][c]=='*' and stop<2:
                 return True
-            else:
-                return False
+            #이건 없어야할 코드,,
+            #else:
+                #return False
 
         if drum[r][c]=='#':
             if r+1<len(drum):
